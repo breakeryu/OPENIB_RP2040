@@ -1,0 +1,21 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: iono_bottom_pico.PcbDoc   2022/4/20  16:05:51
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : iono_bottom_pico.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      8mil (0.2mm)                                              Round             6         PTH        0.00inch (0.00mm)
+T2      18mil (0.457mm)                                           Round             62        PTH        0.00inch (0.00mm)
+T3      24mil (0.6mm)                                             Round             4         PTH        0.00inch (0.00mm)
+T4      39mil (1mm)                                               Round             16        PTH        0.00inch (0.00mm)
+T5      43mil (1.1mm)                                             Round             12        PTH        0.00inch (0.00mm)
+T6      55mil (1.4mm)                                             Round             8         PTH        0.00inch (0.00mm)
+T7      59mil (1.5mm)                                             Round             16        PTH        0.00inch (0.00mm)
+T8      118mil (3mm)                                              Round             2         PTH        0.00inch (0.00mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              126
+
+Total Processing Time (hh:mm:ss) : 00:00:00

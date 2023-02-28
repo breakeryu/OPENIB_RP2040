@@ -1,0 +1,5 @@
+DRC Rules Export File for PCB: C:\tempPCBDir\ac95c0f967c2c5464da23f69a92b3e9f\iono_bottom_pico.PcbDoc
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=4.00
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=6.00
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=6.00
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0

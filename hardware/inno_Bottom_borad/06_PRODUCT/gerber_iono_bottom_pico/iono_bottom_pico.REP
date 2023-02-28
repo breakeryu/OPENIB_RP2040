@@ -1,0 +1,516 @@
+*************************************************************
+FileName = iono_bottom_pico.GBR
+AutoAperture = True
+*************************************************************
+Generating : Drill Drawing
+      File : iono_bottom_pico.GD1
+
+    Adding Drill Pair : Top Layer-Bottom Layer
+
+    Adding Layer      : Drill Drawing
+
+
+Used DCodes :
+    D147
+    D148
+    D149
+    D150
+    D151
+*************************************************************
+
+*************************************************************
+Generating : Drill Guide
+      File : iono_bottom_pico.GG1
+
+    Adding Drill Pair : Top Layer-Bottom Layer
+
+    Adding Layer      : Drill Guide
+
+
+Used DCodes :
+    D147
+*************************************************************
+
+*************************************************************
+Generating : Top Designator
+      File : iono_bottom_pico.GM2
+
+    Adding Layer      : Top Designator
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 1
+      File : iono_bottom_pico.GM1
+
+    Adding Layer      : Mechanical 1
+
+
+Used DCodes :
+    D93
+*************************************************************
+
+*************************************************************
+Generating : Bottom Solder
+      File : iono_bottom_pico.GBS
+
+    Adding Layer      : Bottom Solder
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D78
+    D79
+    D80
+    D81
+    D82
+    D83
+    D84
+    D85
+    D86
+*************************************************************
+
+*************************************************************
+Generating : Top Pad Master
+      File : iono_bottom_pico.GPT
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+    D37
+    D38
+    D39
+    D40
+    D41
+    D42
+    D43
+    D44
+    D45
+    D46
+    D47
+    D48
+    D49
+    D50
+    D51
+    D112
+    D113
+    D114
+    D115
+    D116
+    D117
+    D118
+    D119
+    D120
+*************************************************************
+
+*************************************************************
+Generating : Bottom Layer
+      File : iono_bottom_pico.GBL
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D12
+    D88
+    D89
+    D91
+    D98
+    D112
+    D113
+    D114
+    D115
+    D116
+    D117
+    D118
+    D119
+    D120
+    D121
+    D122
+    D138
+    D139
+    D140
+    D141
+*************************************************************
+
+*************************************************************
+Generating : Bottom Overlay
+      File : iono_bottom_pico.GBO
+
+    Adding Layer      : Bottom Overlay
+
+
+Used DCodes :
+    D142
+    D143
+    D144
+*************************************************************
+
+*************************************************************
+Generating : Top Paste
+      File : iono_bottom_pico.GTP
+
+    Adding Layer      : Top Paste
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+    D37
+    D38
+    D39
+    D40
+    D41
+    D42
+    D43
+    D44
+    D45
+    D46
+    D47
+    D48
+    D49
+    D50
+    D51
+*************************************************************
+
+*************************************************************
+Generating : Bottom Pad Master
+      File : iono_bottom_pico.GPB
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D112
+    D113
+    D114
+    D115
+    D116
+    D117
+    D118
+    D119
+    D120
+*************************************************************
+
+*************************************************************
+Generating : POW
+      File : iono_bottom_pico.GP2
+
+    Adding Layer      : POW
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D123
+    D124
+    D126
+    D127
+    D129
+    D130
+    D131
+    D132
+    D134
+    D135
+    D136
+    D137
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 13
+      File : iono_bottom_pico.GM13
+
+    Adding Layer      : Mechanical 13
+
+
+Used DCodes :
+    D145
+*************************************************************
+
+*************************************************************
+Generating : Top Overlay
+      File : iono_bottom_pico.GTO
+
+    Adding Layer      : Top Overlay
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+    D14
+    D15
+    D16
+    D17
+    D18
+    D19
+    D20
+    D21
+    D22
+    D23
+    D24
+    D25
+*************************************************************
+
+*************************************************************
+Generating : GND
+      File : iono_bottom_pico.GP1
+
+    Adding Layer      : GND
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D123
+    D124
+    D125
+    D126
+    D127
+    D128
+    D129
+    D130
+    D131
+    D132
+    D133
+    D134
+    D135
+*************************************************************
+
+*************************************************************
+Generating : Bottom 3D Body
+      File : iono_bottom_pico.GM15
+
+    Adding Layer      : Bottom 3D Body
+
+
+Used DCodes :
+    D146
+*************************************************************
+
+*************************************************************
+Generating : Top Component Outline
+      File : iono_bottom_pico.GM10
+
+    Adding Layer      : Top Component Outline
+
+
+Used DCodes :
+    D11
+    D13
+    D17
+    D145
+    D146
+*************************************************************
+
+*************************************************************
+Generating : Top Component Center
+      File : iono_bottom_pico.GM7
+
+    Adding Layer      : Top Component Center
+
+
+Used DCodes :
+    D13
+    D91
+    D145
+    D146
+*************************************************************
+
+*************************************************************
+Generating : Top Solder
+      File : iono_bottom_pico.GTS
+
+    Adding Layer      : Top Solder
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D52
+    D53
+    D54
+    D55
+    D56
+    D57
+    D58
+    D59
+    D60
+    D61
+    D62
+    D63
+    D64
+    D65
+    D66
+    D67
+    D68
+    D69
+    D70
+    D71
+    D72
+    D73
+    D74
+    D75
+    D76
+    D77
+    D78
+    D79
+    D80
+    D81
+    D82
+    D83
+    D84
+    D85
+    D86
+*************************************************************
+
+*************************************************************
+Generating : Top Assembly
+      File : iono_bottom_pico.GM4
+
+    Adding Layer      : Top Assembly
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+    D15
+    D17
+    D19
+    D20
+    D21
+    D23
+    D24
+    D25
+    D145
+*************************************************************
+
+*************************************************************
+Generating : Top Layer
+      File : iono_bottom_pico.GTL
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D12
+    D21
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+    D37
+    D38
+    D39
+    D40
+    D41
+    D42
+    D43
+    D44
+    D45
+    D46
+    D47
+    D48
+    D49
+    D50
+    D51
+    D87
+    D88
+    D89
+    D90
+    D91
+    D92
+    D93
+    D94
+    D95
+    D96
+    D97
+    D98
+    D99
+    D100
+    D101
+    D102
+    D103
+    D104
+    D105
+    D106
+    D107
+    D108
+    D109
+    D110
+    D111
+    D112
+    D113
+    D114
+    D115
+    D116
+    D117
+    D118
+    D119
+    D120
+    D121
+    D122
+*************************************************************
+
+*************************************************************
+Generating : Top 3D Body
+      File : iono_bottom_pico.GM14
+
+    Adding Layer      : Top 3D Body
+
+
+Used DCodes :
+    D17
+    D145
+*************************************************************
+

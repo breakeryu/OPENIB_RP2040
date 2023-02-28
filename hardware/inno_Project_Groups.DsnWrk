@@ -1,0 +1,6 @@
+[ProjectGroup]
+Version=1.0
+[Project1]
+ProjectPath=iono_pico\iono_pico.PrjPcb
+[Project2]
+ProjectPath=inno_Bottom_borad\inno_Bottom_borad.PrjPcb
