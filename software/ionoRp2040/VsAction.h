@@ -4,7 +4,7 @@
 
 #include "Arduino.h"
 #include "src/iono/Iono.h"
-
+#include "mconfig.h"
 #include "src/coder/IonoProject.h"
 #include "src/coder/ComPortSystem.h"
 #include "src/coder/LogicControlSystem.h"
