@@ -17,13 +17,15 @@
 
 #define USERTEST 0  //是否使用测试代码 0-不使用，1-使用
 
-#define BOARD_INFO_ADDRESS  10
+#define BOARD_INFO_ADDRESS  10  //系统配置信息——起始地址
+#define BOARD_INFO_LENGTH   8   //系统配置信息——结构体长度
 
 #define FUN_ALL         0
 #define FUN_NORMAL      1
 #define FUN_BLE_NORMAL  2
-#define FUN_AXI_NORMAL  3        
+#define FUN_AXI_NORMAL  3
 
+//系统配置信息结构体
 struct BORAD_INFO
 {
     uint8_t hardwareVersion_H;
