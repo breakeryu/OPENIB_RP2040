@@ -13,6 +13,10 @@ bool axiMoudleIsUsed = false;//标志是否使用震动传感器模块，默认f
 BORAD_INFO minfo;//板级信息写入结构体
 BORAD_INFO rinfo;//板级信息读取结构体
 
+BOARD_SOFTWARE_CONFIG msoftConfigStruct;
+BOARD_SOFTWARE_CONFIG rsoftConfigStruct;
+
+
 
 /**
  * @arg 板级初始化函数。
@@ -21,10 +25,10 @@ BORAD_INFO rinfo;//板级信息读取结构体
  */
 void boardInit(void)
 {
-    
+
     Wire2Init();
     ReadBoardInfo();
-    
+
     if(rinfo.functionCode == FUN_ALL){  //全模式
         bleMoudleIsUsed = true;
         axiMoudleIsUsed = true;
@@ -39,13 +43,13 @@ void boardInit(void)
         axiMoudleIsUsed = true;
         JY901.StartIIC();
     }
-    
+
     if(ScanWireDevices() == false){
         if(bleMoudleIsUsed == true){
             IONO_BLE.println("Scan Process error, software is Stop! Please Check this Divice Problem!");
         }
         //todo 添加错误代码
-    }else 
+    }else
     {
         if(bleMoudleIsUsed == true){
             IONO_BLE.println("Scan Process is Done! All Device are ok!");
@@ -54,21 +58,25 @@ void boardInit(void)
     }
 
     //用于测试
-    #if USERTEST
-
+#if USERTEST
     DO_testFlip();
-    minfo.hardwareVersion_H = 1;
-    minfo.hardwareVersion_L = 0;
-    minfo.softwareVersion_H = 1;
-    minfo.softwareVersion_L = 0;
-    minfo.initDate[0] = 22;
-    minfo.initDate[1] = 5;
-    minfo.initDate[2] = 22;
+    minfo.hardwareVersion_H = 0;
+    minfo.hardwareVersion_L = 2;
+    minfo.softwareVersion_H = 0;
+    minfo.softwareVersion_L = 2;
+    minfo.initDate[0] = 23;
+    minfo.initDate[1] = 3;
+    minfo.initDate[2] = 4;
     minfo.functionCode = FUN_ALL;
     WriteBoardInfo();
     ReadBoardInfo();
-
-    #endif
+    msoftConfigStruct.ComPortConfigTimeThreshold = 100;
+    msoftConfigStruct.LogicControlConfigTImeThreshold = 300;
+    msoftConfigStruct.BlueToothBaudRate = 9600;
+    msoftConfigStruct.Rs485BaudRate = 115200;
+    WriteBoardSoftWareConfig();
+    ReadBoardSoftWareConfig();
+#endif
 
 }
 
@@ -76,7 +84,7 @@ void boardInit(void)
 /**
  * @arg: 蓝牙模块初始化，波特率9600
  * @return {void}
- */ 
+ */
 void BleUartInit(void)
 {
     IONO_BLE.setRX(5);
@@ -97,13 +105,13 @@ void Wire2Init(void)
 
 
 /**
- * @arg 查找IIC设备 
+ * @arg 查找IIC设备
  * @return {bool}，没有查找到设备则出错，
  */
 bool ScanWireDevices(void)
 {
     // Scan_AllDevice();
- 
+
     if (Scan_AH24C16() == false){
         if(bleMoudleIsUsed == true){
             IONO_BLE.println("EEPROM ERROR!!!");
@@ -122,9 +130,9 @@ bool ScanWireDevices(void)
             return false;
         }
     }
-    
 
-    return true;    
+
+    return true;
 }
 
 /**
@@ -178,7 +186,7 @@ bool Scan_JY601(void)
     JY901.GetAcc();
     IONO_BLE.print("Acc:");IONO_BLE.print((float)JY901.stcAcc.a[0]/32768*16);IONO_BLE.print(" ");IONO_BLE.print((float)JY901.stcAcc.a[1]/32768*16);IONO_BLE.print(" ");IONO_BLE.println((float)JY901.stcAcc.a[2]/32768*16);
 
-    // JY901.GetGyro();  
+    // JY901.GetGyro();
     // IONO_BLE.print("Gyro:");IONO_BLE.print((float)JY901.stcGyro.w[0]/32768*2000);IONO_BLE.print(" ");IONO_BLE.print((float)JY901.stcGyro.w[1]/32768*2000);IONO_BLE.print(" ");IONO_BLE.println((float)JY901.stcGyro.w[2]/32768*2000);
 
     // JY901.GetAngle();
@@ -212,9 +220,10 @@ void DO_testFlip(void)
 }
 
 
+//Users other than administrators are prohibited from using this function!
 bool WriteBoardInfo(void)
 {
-    at24cxx_write(EEPROM_ADRESS, BOARD_INFO_ADDRESS, (uint8_t *)&minfo, sizeof(minfo));
+    at24cxx_write(EEPROM_ADRESS, BOARD_INFO_ADDRESS, (uint8_t *)&minfo, BOARD_INFO_LENGTH);
     return true;
 }
 
@@ -225,18 +234,46 @@ bool WriteBoardInfo(void)
  */
 bool ReadBoardInfo(void)
 {
-    at24cxx_read(EEPROM_ADRESS, BOARD_INFO_ADDRESS, (uint8_t *)&rinfo, sizeof(rinfo));
+    at24cxx_read(EEPROM_ADRESS, BOARD_INFO_ADDRESS, (uint8_t *)&rinfo, BOARD_INFO_LENGTH);
 
-    #if USERTEST
+#if USERTEST
     IONO_BLE.print("hardwareVersion = ");IONO_BLE.print(rinfo.hardwareVersion_H);IONO_BLE.print(".");IONO_BLE.println(rinfo.hardwareVersion_L);
     IONO_BLE.print("softwareVersion = ");IONO_BLE.print(rinfo.softwareVersion_H);IONO_BLE.print(".");IONO_BLE.println(rinfo.softwareVersion_L);
     IONO_BLE.print("init date = ");IONO_BLE.print(2000+rinfo.initDate[0]);IONO_BLE.print(".");IONO_BLE.print(rinfo.initDate[1]);IONO_BLE.print(".");IONO_BLE.println(rinfo.initDate[2]);
     IONO_BLE.print("fun code = ");IONO_BLE.println(rinfo.functionCode);
-    #endif
+#endif
 
     return true;
 
 }
+
+//Users other than administrators are prohibited from using this function!
+bool WriteBoardSoftWareConfig(void)
+{
+    at24cxx_write(EEPROM_ADRESS, BOARD_SOFTWARE_CONFIG_ADDRESS, (uint8_t *)&msoftConfigStruct, BOARD_SOFTWARE_CONFIG_LENGTH);
+    return true;
+}
+
+
+/**
+ * @arg EEPROM读取软件参数
+ * @return {bool}
+ */
+bool ReadBoardSoftWareConfig(void)
+{
+    at24cxx_read(EEPROM_ADRESS, BOARD_SOFTWARE_CONFIG_ADDRESS, (uint8_t *)&rsoftConfigStruct, BOARD_SOFTWARE_CONFIG_LENGTH);
+
+#if USERTEST
+    IONO_BLE.print("hardwareVersion = ");IONO_BLE.print(rinfo.hardwareVersion_H);IONO_BLE.print(".");IONO_BLE.println(rinfo.hardwareVersion_L);
+    IONO_BLE.print("softwareVersion = ");IONO_BLE.print(rinfo.softwareVersion_H);IONO_BLE.print(".");IONO_BLE.println(rinfo.softwareVersion_L);
+    IONO_BLE.print("init date = ");IONO_BLE.print(2000+rinfo.initDate[0]);IONO_BLE.print(".");IONO_BLE.print(rinfo.initDate[1]);IONO_BLE.print(".");IONO_BLE.println(rinfo.initDate[2]);
+    IONO_BLE.print("fun code = ");IONO_BLE.println(rinfo.functionCode);
+#endif
+
+    return true;
+}
+
+
 
 
 void ParasCmd(void)

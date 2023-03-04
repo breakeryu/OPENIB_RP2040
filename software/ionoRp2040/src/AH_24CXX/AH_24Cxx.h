@@ -3,7 +3,7 @@
 #define AH_24Cxx_h
 
 #include <Arduino.h>   //Arduino IDE >= V1.0
-#include <Wire.h> 
+#include <Wire.h>
 
 #define AT24C16
 
@@ -17,9 +17,9 @@
 #define PAGE_SIZE   (32)
 #endif
 
-#define EEPROM_ADRESS   0x56      
-#define EEPROM_SIZE     2048     //AT24C16 2048byte
-#define EEPROM_CHECK_ADRESS     2 
+#define EEPROM_ADRESS   0x56        //device address
+#define EEPROM_SIZE     2048        //AT24C16 2048byte
+#define EEPROM_CHECK_ADRESS     2
 #define EEPROM_CHECK_KEY        0x56
 
 
@@ -31,4 +31,4 @@ int at24cxx_read(int slave, int addr, uint8_t *buf, int buflen);
 bool at24cxx_checkConnection(void);
 
 
-#endif 
+#endif
