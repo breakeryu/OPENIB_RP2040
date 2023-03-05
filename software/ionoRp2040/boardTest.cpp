@@ -57,7 +57,7 @@ void boardInit(void)
         //todo 添加错误代码
     }
 
-    //用于测试
+    //用于测试,代码确定后，参数一般只需要写入一次。
 #if USERTEST
     DO_testFlip();
     minfo.hardwareVersion_H = 0;
