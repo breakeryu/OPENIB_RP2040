@@ -44,14 +44,14 @@ bool modbusSlave_poll(void){
     respondLength=ParsingMasterAccessCommand(mcudRxBuffer,respondBytes,mcudRxLength,localStation);
     if(respondLength!=65535)
     {
-        
+
         /* USART1数据发送函数 */
         Iono.serialTxEn(true);
         IONO_RS485.write(respondBytes,respondLength);
         Iono.serialTxEn(false);
         mcudRxLength=0;
         pollOk = true;
-        
+
     }
   }
   return pollOk;
@@ -112,7 +112,7 @@ void GetCoilStatus(uint16_t startAddress,uint16_t quantity,bool *statusList)
   /*先判断地址是否处于合法范围*/
   start=(startAddress>CoilStartAddress)?((startAddress<=CoilEndAddress)?startAddress:CoilEndAddress):CoilStartAddress;
   count=((start+quantity-1)<=CoilEndAddress)?quantity:(CoilEndAddress-start);
-  
+
   for(int i=0;i<count;i++)
   {
     statusList[i]=dPara.coil[start+i];
@@ -121,7 +121,7 @@ void GetCoilStatus(uint16_t startAddress,uint16_t quantity,bool *statusList)
 
 /*获取想要读取的保持寄存器的值*/
 /**
- * @arg: 
+ * @arg:
  * @param {uint16_t} startAddress
  * @param {uint16_t} quantity
  * @param {uint16_t} *registerValue
@@ -134,7 +134,7 @@ void GetHoldingRegister(uint16_t startAddress,uint16_t quantity,uint16_t *regist
   /*先判断地址是否处于合法范围*/
   start=(startAddress>HoldingRegisterStartAddress)?((startAddress<=HoldingRegisterEndAddress)?startAddress:HoldingRegisterEndAddress):HoldingRegisterStartAddress;
   count=((start+quantity-1)<=HoldingRegisterEndAddress)?quantity:(HoldingRegisterEndAddress-start);
-  
+
   for(int i=0;i<count;i++)
   {
     registerValue[i]=aPara.holdingRegister[start+i];
@@ -157,10 +157,10 @@ void SetSingleCoil(uint16_t coilAddress,bool coilValue)
 void SetMultipleCoil(uint16_t startAddress,uint16_t quantity,bool *statusValue)
 {
   uint16_t endAddress=startAddress+quantity-1;
-  
+
   bool noError=((startAddress>=CoilStartAddress)?((startAddress<=CoilEndAddress)?true:false):false)
                 &&((endAddress>=CoilStartAddress)?((endAddress<=CoilEndAddress)?true:false):false);
-  
+
   if(noError)
   {
     for(int i=0;i<quantity;i++)
@@ -179,7 +179,7 @@ void SetSingleRegister(uint16_t registerAddress,uint16_t registerValue)
   {
     aPara.holdingRegister[registerAddress]=registerValue;
   }
-  
+
 }
 
 
@@ -187,7 +187,7 @@ void SetSingleRegister(uint16_t registerAddress,uint16_t registerValue)
 void SetMultipleRegister(uint16_t startAddress,uint16_t quantity,uint16_t *registerValue)
 {
   uint16_t endAddress=startAddress+quantity-1;
-  
+
   bool noError=((startAddress>=HoldingRegisterStartAddress)?((startAddress<=HoldingRegisterEndAddress)?true:false):false)
                 &&((endAddress>=HoldingRegisterStartAddress)?((endAddress<=HoldingRegisterEndAddress)?true:false):false);
 

@@ -10,11 +10,11 @@
 
 bool bleMoudleIsUsed = false;//标志是否使用蓝牙模块，默认false-不使用
 bool axiMoudleIsUsed = false;//标志是否使用震动传感器模块，默认false-不使用
-BORAD_INFO minfo;//板级信息写入结构体
-BORAD_INFO rinfo;//板级信息读取结构体
+MC_BOARD_INFO_t minfo;//板级信息写入结构体
+MC_BOARD_INFO_t rinfo;//板级信息读取结构体
 
-BOARD_SOFTWARE_CONFIG msoftConfigStruct;
-BOARD_SOFTWARE_CONFIG rsoftConfigStruct;
+MC_BOARD_SOFTWARE_CONFIG_t msoftConfigStruct;
+MC_BOARD_SOFTWARE_CONFIG_t rsoftConfigStruct;
 
 
 

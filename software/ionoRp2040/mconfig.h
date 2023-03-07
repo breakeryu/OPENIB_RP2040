@@ -3,6 +3,10 @@
 
 
 #include "Arduino.h"
+#include "src/iono/Iono.h"
+#include "src/AH_24CXX/AH_24Cxx.h"
+#include "src/JY601P/JY901.h"
+#include "Wire.h"
 
 /*
 
@@ -19,15 +23,14 @@ Part1. Definition of EEPROM Cofiguration
 #define FUN_AXI_NORMAL  3
 
 //系统配置信息结构体
-struct BORAD_INFO
-{
+typedef struct{
     uint8_t hardwareVersion_H;
     uint8_t hardwareVersion_L;
     uint8_t softwareVersion_H;
     uint8_t softwareVersion_L;
     uint8_t initDate[3];
     uint8_t functionCode;
-};
+}MC_BOARD_INFO_t;
 
 
 #define BOARD_SOFTWARE_CONFIG_ADDRESS   0x50    //软件配置——起始地址
@@ -41,13 +44,12 @@ struct BORAD_INFO
 
 
 //软件配置结构体
-struct BOARD_SOFTWARE_CONFIG
-{
+typedef struct{
     uint8_t ComPortConfigTimeThreshold;
     uint8_t LogicControlConfigTImeThreshold;
     uint8_t BlueToothBaudRate;
     uint8_t Rs485BaudRate;
-};
+}MC_BOARD_SOFTWARE_CONFIG_t;
 
 
 
@@ -139,8 +141,19 @@ Part2. Definition of RS485 Communication Protocol Cofiguration
 
 
 
+void MC_board_Info_First_Init(void);
+void MC_board_Software_Config_First_Or_Re_Init(void);
 
 
+
+
+
+
+
+extern uint8_t _mconfigComPortConfigTimeThreshold ;
+extern uint8_t _mconfigLogicControlConfigTImeThreshold ;
+extern uint8_t _mconfigBlueToothBaudRate ;
+extern uint8_t _mconfigRs485BaudRate ;
 
 
 #endif
